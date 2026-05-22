@@ -4,10 +4,14 @@ import numpy as np
 
 from src.processamento import processar_imagem
 
+
 def carregar_dataset():
 
     X = []
+
     y = []
+
+    infos = []
 
     # percorre letras A-Z
     for letra in string.ascii_uppercase:
@@ -20,11 +24,9 @@ def carregar_dataset():
             caminho = f"{pasta}/{arquivo}"
 
             # processa imagem
-            matriz = processar_imagem(
-                caminho
-            )
+            matriz = processar_imagem(caminho)
 
-            # transforma em vetor
+            # transforma matriz em vetor
             vetor = matriz.flatten()
 
             # salva vetor
@@ -33,9 +35,12 @@ def carregar_dataset():
             # salva letra correta
             y.append(letra)
 
-            print(
-                "Imagem processada:",
-                caminho
-            )
+            # salva nome arquivo
+            infos.append(arquivo)
 
-    return np.array(X), np.array(y)
+    return (
+        np.array(X),
+        np.array(y),
+        #nome do arquivos e fontes
+        infos
+    )

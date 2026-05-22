@@ -2,20 +2,22 @@ from src.extracao import carregar_dataset
 
 X, y = carregar_dataset()
 
-print()
-print("Dataset carregado!")
+#print()
+#print("Dataset carregado!")
 
-print()
+#print()
 
-print("Quantidade de imagens:")
-print(len(X))
+#print("Quantidade de imagens:")
+#print(len(X))
 
-print()
+#print()
 
 print("Formato do vetor:")
 print(X[0].shape)
 
 print()
+
+
 
 print("Primeira letra:")
 print(y[0])
@@ -24,3 +26,17 @@ print()
 
 print("Primeiro vetor:")
 print(X[0])
+
+
+print("Segunda letra:")
+print(y[0])
+
+
+
+print()
+
+print("Segundo vetor:")
+print(X[0])
+
+print()
+
