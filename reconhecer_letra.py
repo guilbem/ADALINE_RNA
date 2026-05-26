@@ -1,9 +1,31 @@
+import string
+import numpy as np
+from tqdm import tqdm
+import pickle
+
+
 from src.processamento import processar_imagem
 from src.treino_rede import treinar_redes
 
 
 #treina as 26 redes
-redes = treinar_redes()
+#redes = treinar_redes()
+
+
+with open(
+    "modelos/rede_adaline.pkl",
+    "rb"
+) as arquivo:
+
+    redes = pickle.load(
+        arquivo
+    )
+
+
+print()
+print("Modelo carregado!")
+print()
+
 
 
 #imagem selecionada para ser reconhecida
