@@ -83,7 +83,7 @@ def reconhecer_imagem():
 
     print()
     print(
-        "LETRA RECONHECIDA:",
+        "Letra Reconhecida pela ADALINE:",
         letra_reconhecida
     )
 
@@ -102,7 +102,7 @@ def reconhecer_imagem():
 janela = tk.Tk()
 
 janela.title(
-    "Reconhecimento OCR - ADALINE"
+    "Reconhecimento de Letras - ADALINE"
 )
 
 janela.geometry(

@@ -12,7 +12,7 @@ def treinar_redes():
     # carrega dataset
     X, y, infos = carregar_dataset()
 
-    # dicionário redes
+    # as 26 redes
     redes = {}
 
     # percorre letras

@@ -4,10 +4,7 @@ import numpy as np
 
 def processar_imagem(caminho):
 
-    # =========================
-    # ABRE IMAGEM
-    # =========================
-
+   #consulta imagem
     imagem = np.fromfile(
         caminho,
         dtype=np.uint8
@@ -25,19 +22,13 @@ def processar_imagem(caminho):
             f"Erro ao abrir:\n{caminho}"
         )
 
-    # =========================
-    # ESCALA DE CINZA
-    # =========================
-
+   #conversao para cinza
     gray = cv2.cvtColor(
         img,
         cv2.COLOR_BGR2GRAY
     )
 
-    # =========================
-    # BINARIZAÇÃO
-    # =========================
-
+   #binarizacao
     _, binaria = cv2.threshold(
 
         gray,
@@ -49,10 +40,7 @@ def processar_imagem(caminho):
         cv2.THRESH_BINARY_INV
     )
 
-    # =========================
-    # REDIMENSIONA
-    # =========================
-
+   #tamanho da imagem
     redimensionada = cv2.resize(
 
         binaria,
@@ -60,19 +48,10 @@ def processar_imagem(caminho):
         (20,20)
     )
 
-    # =========================
-    # CONVERTE:
-    # branco -> -1
-    # preto -> 1
-    # =========================
-
+   #conversao do binario para -1e1, branco=-1  preto=1
     redimensionada = np.where(
 
-        redimensionada > 0,
-
-        1,
-
-        -1
+        redimensionada > 0, 1, -1
     )
 
     return redimensionada
