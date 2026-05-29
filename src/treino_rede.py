@@ -39,10 +39,7 @@ def treinar_redes():
 
 
         # cria rede
-        rede = Adaline(
-            taxa=0.001,
-            epocas=1000
-        )
+        rede = Adaline(taxa=0.001, epocas=1000)
 
 
         # treina rede

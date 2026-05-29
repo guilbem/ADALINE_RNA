@@ -7,11 +7,7 @@ import pickle
 from src.processamento import processar_imagem
 from src.treino_rede import treinar_redes
 
-
-#treina as 26 redes
-#redes = treinar_redes()
-
-
+#abre e percorre o arq do modelo 
 with open(
     "modelos/rede_adaline.pkl",
     "rb"
