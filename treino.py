@@ -32,7 +32,7 @@ for letra in string.ascii_uppercase:
     # cria neurônio
     rede = Adaline(
         taxa=0.001,
-        epocas=100
+        epocas=1000
     )
 
     # treina rede

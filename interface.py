@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import filedialog
 
 import pickle
+import shutil
 
 from src.processamento import processar_imagem
 
@@ -47,6 +48,16 @@ def reconhecer_imagem():
     print(caminho)
 
 
+    # copia imagem temporaria
+    # evita erro com acentos
+    shutil.copy(
+        caminho,
+        "temp.png"
+    )
+
+    caminho = "temp.png"
+
+
     # processa imagem
     matriz = processar_imagem(
         caminho
@@ -81,19 +92,54 @@ def reconhecer_imagem():
     )
 
 
+    # pega valor ativacao
+    maior_ativacao = ativacoes[
+        letra_reconhecida
+    ]
+
+
+    # calcula confianca
+    soma = sum(
+
+        abs(valor)
+
+        for valor in ativacoes.values()
+    )
+
+    confianca = (
+
+        abs(maior_ativacao) / soma
+
+    ) * 100
+
+
     print()
     print(
         "Letra Reconhecida pela ADALINE:",
         letra_reconhecida
     )
 
+    print()
 
-    # mostra na tela
+    print(
+        f"Confiança: "
+        f"{confianca:.2f}%"
+    )
+
+
+    # mostra na tela  ametrica 
     resultado_label.config(
 
         text=(
+
             f"Letra reconhecida: "
-            f"{letra_reconhecida}"
+            f"{letra_reconhecida}\n\n"
+
+            f"Ativação: "
+            f"{maior_ativacao:.2f}\n\n"
+
+            f"Confiança: "
+            f"{confianca:.2f}%"
         )
     )
 

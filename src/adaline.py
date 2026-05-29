@@ -3,7 +3,7 @@ import numpy as np
 class Adaline:
 
     # construtor
-    def __init__(self, taxa=0.001, epocas=200):
+    def __init__(self, taxa=0.001, epocas=1000):
 
         # taxa aprendizado
         self.taxa = taxa
